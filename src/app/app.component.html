@@ -2,7 +2,8 @@
   <article class="application">
     <header class="application__header">
       <h1 class="application__title"> Password generator </h1>
-      <p class="application__description"> Generate random password by passing the password's length and ticking minimum one chechbox with character type. </p>
+      <p class="application__description"> Generate random password by passing the password's length (max. 20) and ticking minimum
+        one chechbox with character type. </p>
     </header>
     <div class="application__body">
       <form class="password-form">
@@ -10,38 +11,37 @@
           <label for="password-length">
             Length:
           </label>
-          <input class="password-form__input" type="number" id ="password-length" min="1">
+          <input (input)="updateLength($event)" class="password-form__input" type="number" id="password-length" min="1" max="20">
         </p>
         <p class="password-form__fieldset">
           <label for="password-has-numbers">
             Include numbers:
           </label>
-          <input class="password-form__checkbox" type="checkbox" id="password-has-numbers">
+          <input (input)="checkboxHandler('includeNumbers')" class="password-form__checkbox" type="checkbox" id="password-has-numbers">
         </p>
         <p class="password-form__fieldset">
           <label for="password-has-letters">
             Include letters:
           </label>
-          <input class="password-form__checkbox" type="checkbox" id="password-has-letters">
+          <input (input)="checkboxHandler('includeLetters')" class="password-form__checkbox" type="checkbox" id="password-has-letters">
         </p>
         <p class="password-form__fieldset">
           <label for="password-has-specials">
             Include special characters:
           </label>
-          <input class="password-form__checkbox" type="checkbox" id="password-has-specials">
+          <input (input)="checkboxHandler('includeSpecialChars')" class="password-form__checkbox" type="checkbox" id="password-has-specials">
         </p>
         <p class="password-form__fieldset">
-          <input class="password-form__submit" type="submit" value="generate a password">
+          <input (click)="submit($event)" [disabled]="!length && (includeNumbers || includeLetters || includeSpecialChars)" class="password-form__submit" type="submit" value="generate a password">
         </p>
       </form>
-      <section class="password-generated">
+      <section *ngIf="password" class="password-generated">
         <h2 class="password-generated__title"> Your password: </h2>
-        <p class="password-generated__password">duP**456</p>
-        <button class="password-generated__copy-btn">
-          <img src="../assets/img/copy-icon.svg" alt="">
+        <p class="password-generated__password">{{password}}</p>
+        <button (click)="copy()" class="password-generated__copy-btn">
+          <img src="assets/img/copy-icon.svg" alt="">
         </button>
       </section>
     </div>
   </article>
 </div>
-
