@@ -17,32 +17,23 @@ html {
   font-size: 100%;
 }
 
-// @media (min-width: 400px) {
-//   html {
-//     font-size: 115%;
-//   }
-// }
-
-// @media (min-width: 450px) {
-//   html {
-//     font-size: 130%;
-//   }
-// }
-
-// @media (min-width: 500px) {
-//   html {
-//     font-size: 145%;
-//   }
-// }
-
-// @media (min-width: 600px) {
-//   html {
-//     font-size: 165%;
-//   }
-// }
-
-// @media (min-width: 750px) {
-//   html {
-//     font-size: 175%;
-//   }
-// }
+@media (max-width: 800px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 80%;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 750;
+  }
+}
