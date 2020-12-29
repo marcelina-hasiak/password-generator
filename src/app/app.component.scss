@@ -39,7 +39,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding-bottom: 3rem;
     @media (max-width: 400px) {
       padding-bottom: 2rem;
@@ -62,6 +61,7 @@
     border: solid 2px #ffffff;
     border-radius: 10px;
     padding: 3rem 6rem;
+    max-width: 500px;
     @media (max-width: 600px) {
       padding: 3rem 4rem;
     }
@@ -92,9 +92,6 @@
     font-size: 1.2rem;
     color: white;
     padding: 0.5rem;
-    // @media (max-width: 360px) {
-    //   width: 12rem;
-    // }
   }
   &__checkbox {
     justify-self: start;
@@ -115,7 +112,6 @@
     font-weight: 700;
     transition: background 0.3s;
     cursor: pointer;
-
     &:hover {
       background: #99b628;
     }
@@ -137,9 +133,32 @@
   &__copy-btn {
     background: none;
     border: none;
+    position: relative;
     cursor: pointer;
     & img {
       height: 2rem;
+    }
+  }
+  &__tooltip {
+    position: absolute;
+    background: #b5da23;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    top: 130%;
+    right: -100%;
+    font-size: .8rem;
+    white-space: nowrap;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 74%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #b5da23 transparent;
     }
   }
 }

@@ -6,28 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   length: number = 0
   includeNumbers: boolean = false
   includeLetters: boolean = false
   includeSpecialChars: boolean = false
   password:string = ""
+  copyAlert: string = ""
 
   updateLength(event: any) {
-    // console.log((parseInt(event.target.value)))
-    // console.log(parseInt(event.target.max))
     if (parseInt(event.target.value) <= parseInt(event.target.max)) {
       this.length = parseInt(event.target.value)
-      console.log('dupaaa')
     } else {
-      console.log('delete')
       this.length = 0
     }
   }
   checkboxHandler(value:string) {
     this[value] = !this[value]
   }
-
   submit(event:any) {
     event.preventDefault()
     this.password = this.generateRandomPassword()
@@ -49,7 +44,7 @@ export class AppComponent {
   }
   copy() {
     navigator.clipboard.writeText(`${this.password}`)
-    .then(() => console.log('Async: Copying to clipboard was successful!'))
-    .catch(err => console.error('Async: Could not copy text: ', err))
+    .then(() => this.copyAlert = 'Copyied to clipboard')
+    .catch(() => this.copyAlert = 'Upsy daisy')
   }
 }
