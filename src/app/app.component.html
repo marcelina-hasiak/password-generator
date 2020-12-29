@@ -40,6 +40,7 @@
         <p class="password-generated__password">{{password}}</p>
         <button (click)="copy()" class="password-generated__copy-btn">
           <img src="assets/img/copy-icon.svg" alt="">
+          <p *ngIf="copyAlert" class="password-generated__tooltip">{{copyAlert}}</p>
         </button>
       </section>
     </div>
