@@ -2,7 +2,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 It is my first mini application in Angular, where Interpolation, Event and property binding have been used. 
 
-![application-visualtisation](/application-visualisation.png)
+![application-visualtisation](./src/assets/img/application-visualisation.png)
 
 ## Development server
 
