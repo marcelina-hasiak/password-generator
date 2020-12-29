@@ -32,7 +32,7 @@
           <input (input)="checkboxHandler('includeSpecialChars')" class="password-form__checkbox" type="checkbox" id="password-has-specials">
         </p>
         <p class="password-form__fieldset">
-          <input (click)="submit($event)" [disabled]="!length && (includeNumbers || includeLetters || includeSpecialChars)" class="password-form__submit" type="submit" value="generate a password">
+          <input (click)="submit($event)" [disabled]="!(length && (includeNumbers || includeLetters || includeSpecialChars))" class="password-form__submit" type="submit" value="generate a password">
         </p>
       </form>
       <section *ngIf="password" class="password-generated">
